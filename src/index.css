@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(4, 21, 36);
+}
+
+.tools {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+svg {
+  cursor: default;
+}
+
+circle, text {
+  cursor: pointer;
+}
+
+button {
+  padding: .5rem;
+  margin: 0;
+  background-color: rgb(38, 206, 80);
+  flex-grow: 1;
+  box-shadow: none;
+  border: 2px solid black;
+}
+
+button:disabled {
+  color: black;
+  background-color: rgb(238, 86, 66);
+}
+
+.pathfinding {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.pathfindingUnit {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.pathfindingUnit.selected {
+  border: 2px solid white;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+h3 {
+  margin: 0rem
+}
