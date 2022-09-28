@@ -5,7 +5,7 @@ This project is a quick demo and test for routefinding algorihtm with 2 separate
 Example case:
 A is driving from Tampere to Helsinki with B. A lives in west Helsinki, B in east Helsinki. They want to find the best drop-off point for person B, so that he can continue his journey to east Helsinki with electric scooter, while A drives to his destination.
 
-Live demo can be found [here](https://codepen.io/t44vi/full/vyjdzdr)
+Live demo can be found [here](https://codepen.io/T44vi/full/vYjdZdR)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
