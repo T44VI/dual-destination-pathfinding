@@ -311,7 +311,7 @@ export const PathFinding = () => {
   });
   useLayoutEffect(() => {
     const recalculateSizes = () => {
-      const width = window.innerWidth;
+      const width = document.body.clientWidth;
       const height = window.innerHeight * 0.8;
 
       const scaling = Math.min(width / usableArea.x, height / usableArea.y);
@@ -666,7 +666,7 @@ export const PathFinding = () => {
           className={`pathfindingUnit ${isSplitted ? "" : "selected"}`}
           onClick={() => setIsSplitted(false)}
         >
-          <h3>Without split</h3>
+          <h3>Without route sharing</h3>
           <p>
             Route of agent A: {pathfinder.otherRoutes.noSplitA.route.join(", ")}
             , cost: {pathfinder.otherRoutes.noSplitA.time}
@@ -676,6 +676,43 @@ export const PathFinding = () => {
             , cost: {pathfinder.otherRoutes.noSplitB.time}
           </p>
         </div>
+      </div>
+      <div className="explanation">
+        <h2>Dual destination pathfinding</h2>
+        <p>
+          This is a demo of parallel destination pathfinding algorithm with time
+          complexity of O(n)
+        </p>
+        <h4>User Story</h4>
+        <p>
+          Agents A and B want to get to their respective destinations. Both
+          start at {startPoint} and want to get to {targetA} and {targetB}{" "}
+          respectfully. Agent A travels with car and B with electric scooter for
+          exapmle. So agent B can use routes of A if agent A travels with B.
+          This algorithm finds the best route for total cost. In the graph cost
+          of individual route has been splitted for agents A and B.
+        </p>
+        <h4>Usage</h4>
+        <p>
+          With this demo user can choose tool with green buttons below the
+          graph. Below tools is routes with and without route sharing. User can
+          click on those to display the routes on the graph. Route of agent A is
+          displayed in white and B's in yellow.
+        </p>
+        <h4>The algorithm</h4>
+        <p>
+          The algorithm starts by calculating cheapest route to starting point
+          (for agent A), destination of A and destination of B for every node.
+          This is done by starting with the initial point and then adding every
+          link of the node to priority queue by cost to that links target. Then
+          algorithm takes point with cheapest cost and does the same until every
+          node has a cost and a route to initial point. After that the algorithm
+          calculates total cost for every point as a point for splitting. This
+          is done by using cost to starting point for agent A and costs to
+          targets for agents A and B. Total cost is 2 * cost to starting point
+          for A + cost to destination of agent A + cost to destination of agent
+          B. Then the cheapest route by total cost is selected and returned
+        </p>
       </div>
     </>
   );

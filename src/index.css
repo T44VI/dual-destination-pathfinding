@@ -56,3 +56,9 @@ button:disabled {
 h3 {
   margin: 0rem
 }
+
+.explanation {
+  color: white;
+  max-width: 50rem;
+  margin: 0 auto;
+}
